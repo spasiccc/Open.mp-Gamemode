@@ -23,6 +23,11 @@ main()
 	printf(" ");
 }
 
+YCMD:mycommand(playerid, const string:params[], help)
+{
+	return 1;
+}
+
 public OnGameModeInit()
 {
 	SetGameModeText("My first open.mp gamemode!");

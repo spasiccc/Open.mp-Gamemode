@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<?xml-stylesheet href="file:///C|/Users/Korisnik/Desktop/Open.mp Server/qawno/xml/pawndoc.xsl" type="text/xsl"?>
-<doc source="C:\Users\Korisnik\Desktop\Open.mp Server\gamemodes\gamemodes.pwn">
+<?xml-stylesheet href="file:///C|/Users/Korisnik/Documents/GitHub/open.mp-gamemode/qawno/xml/pawndoc.xsl" type="text/xsl"?>
+<doc source="C:\Users\Korisnik\Documents\GitHub\open.mp-gamemode\gamemodes\gamemodes.pwn">
 	<assembly>
 		<name>gamemodes.pwn</name>
 	</assembly>
@@ -2873,7 +2873,7 @@
 			<referrer name="CodeScanCall"/>
 			<library>y_emit</library>  <remarks>  The JIT plugin address translation register value for use in <c>LCTRL</c>  and <c>SCTRL</c>.  </remarks> 
 		</member>
-		<member name="C:__line" value="419">
+		<member name="C:__line" value="424">
 		</member>
 		<member name="C:__local0_offset" value="-4">
 			<referrer name="K@"/>
@@ -3794,6 +3794,7 @@
 			<referrer name="Command_RemoveCallback__"/>
 			<referrer name="Command_Add__"/>
 			<referrer name="@a"/>
+			<referrer name="@yC_mycommand"/>
 			<library>y_core</library>  <remarks>  The ID of this script.  <c>-1</c> initially in case there is no master  system.  So we respond to everything.  </remarks> 
 		</member>
 		<member name="F:A@">
@@ -8563,6 +8564,18 @@
 			<param name="id">
 			</param>
 		</member>
+		<member name="M:@_yCmycommand" syntax="@_yCmycommand(playerid, params[], help)">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<referrer name="@yC_mycommand"/>
+			<param name="playerid">
+			</param>
+			<param name="params">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="help">
+			</param>
+		</member>
 		<member name="M:@_yHAction" syntax="@_yHAction()">
 			<attribute name="public"/>
 			<stacksize value="5"/>
@@ -8666,6 +8679,23 @@
 			<attribute name="public"/>
 			<stacksize value="1"/>
 			<library>time</library>  <summary>A timer event occurred.</summary>  <remarks>  This function executes after the configured delay or interval expires.  See <c>settimer</c> to  set the delay or interval.  Depending on the timing precision of the host, the call may occur  later than the delay that was set.  <p/>  If the timer was set as a "single-shot", it must be ex plicitly set again for a next execution  for the <c>@timer</c>function.  If the timer is set to be repetitive, <c>@timer</c> will continue  to be called with the set interval until it is disabled with another call to <c>settimer</c>.  </remarks>  <returns>The return value of this function is currently ignored.</returns> 
+		</member>
+		<member name="M:@yC_mycommand" syntax="@yC_mycommand(a, b[], c, i)">
+			<tagname value="_YCMD_4"/>
+			<attribute name="public"/>
+			<stacksize value="8"/>
+			<dependency name="@_"/>
+			<dependency name="@_yCmycommand"/>
+			<dependency name="U@"/>
+			<param name="a">
+			</param>
+			<param name="b">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="c">
+			</param>
+			<param name="i">
+			</param>
 		</member>
 		<member name="M:@yH_OnMasterSystemClose@000" syntax="@yH_OnMasterSystemClose@000(&amp;id)">
 			<attribute name="public"/>
@@ -28786,6 +28816,7 @@
 		<member name="M:U@" syntax="U@(id, name[], value, string[])">
 			<attribute name="native"/>
 			<referrer name="Master_Reassert"/>
+			<referrer name="@yC_mycommand"/>
 			<param name="id">
 			</param>
 			<param name="name">
